@@ -10,6 +10,8 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Node
         uses: actions/setup-node@v1
+      - name: echo test
+        run: echo ${SCOPE_APIKEY}
       - name: Install dependencies
         run: yarn
       - name: Start app
@@ -20,4 +22,6 @@ jobs:
           SCOPE_APIKEY: ${{secrets.SCOPE_APIKEY}}
           CI: true
       - name: Run Cypress tests
-        run: yarn cypress:run --env SCOPE_APIKEY=${{secrets.SCOPE_APIKEY}},SCOPE_API_ENDPOINT=https://app.scope.dev
+        run: yarn cypress:run --env SCOPE_APIKEY=${SCOPE_APIKEY},SCOPE_API_ENDPOINT=https://app.scope.dev
+        env:
+          SCOPE_APIKEY: ${{secrets.SCOPE_APIKEY}}
