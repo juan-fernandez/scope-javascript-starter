@@ -20,6 +20,4 @@ jobs:
           SCOPE_APIKEY: ${{secrets.SCOPE_APIKEY}}
           CI: true
       - name: Run Cypress tests
-        run: yarn cypress:run --env SCOPE_APIKEY=${SCOPE_APIKEY}
-        env:
-          SCOPE_APIKEY: ${{secrets.SCOPE_APIKEY}}
+        run: yarn cypress:run --env SCOPE_APIKEY=${{secrets.SCOPE_APIKEY}},SCOPE_API_ENDPOINT=https://app.scope.dev
