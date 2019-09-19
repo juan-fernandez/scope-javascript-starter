@@ -14,12 +14,12 @@ jobs:
         run: yarn
       - name: Start app
         run: yarn start &
-      - name: Run Cypress tests
-        run: yarn cypress:run
-        env:
-          SCOPE_APIKEY: ${{secrets.SCOPE_APIKEY}}
       - name: Run Jest tests
         run: yarn test --runInBand
         env:
           SCOPE_APIKEY: ${{secrets.SCOPE_APIKEY}}
           CI: true
+      - name: Run Cypress tests
+        run: yarn cypress:run --env SCOPE_APIKEY=${SCOPE_APIKEY}
+        env:
+          SCOPE_APIKEY: ${{secrets.SCOPE_APIKEY}}
