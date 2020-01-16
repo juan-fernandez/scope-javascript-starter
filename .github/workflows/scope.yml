@@ -11,10 +11,11 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v1
       - name: Install dependencies
-        run: npm install
+        run: yarn
       - name: Scope for Javascript
         uses: undefinedlabs/scope-for-javascript-action@v1
         with:
+          yarn-or-npm: yarn
           command: yarn test
           command-browser: yarn cypress:run
           dsn: ${{ secrets.SCOPE_DSN }}
