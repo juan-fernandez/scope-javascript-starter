@@ -13,7 +13,7 @@ jobs:
       - name: Install dependencies
         run: yarn
       - name: Scope for Javascript
-        uses: undefinedlabs/scope-for-javascript-action@v1
+        uses: undefinedlabs/scope-for-javascript-action@master
         with:
           command: yarn test
           command-browser: yarn cypress:run
