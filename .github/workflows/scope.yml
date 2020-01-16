@@ -17,3 +17,4 @@ jobs:
         with:
           command: yarn test
           command-browser: yarn cypress:run
+          dsn: ${{ secrets.SCOPE_DSN }}
